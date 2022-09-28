@@ -1,0 +1,32 @@
+body {
+  font-size: 10px;
+  --primary-colour: white;
+  --accent-colour: gray;
+}
+main {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+fieldset {
+  display: inline-block;
+  width: min-content;
+  border: 0px;
+}
+input {
+  border: 0px;
+  border-bottom: 1px solid var(--accent-colour);
+  margin-bottom: 5px;
+}
+h1 {
+  font-size: 2rem;
+}
+p, input, textarea {
+  font-size: 1rem;
+}
+button {
+  border: 1px solid var(--accent-colour);
+  border-radius: 5px;
+  background-color: var(--primary-colour);
+}
