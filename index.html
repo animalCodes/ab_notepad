@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AB_Notepad</title>
+</head>
+
+<body>
+  <header>
+    <h1>AB_Notepad</h1>  
+    <p id="intro"><strong>A</strong>nimal's <strong>B</strong>asic note taking web application.</p>
+  </header>
+  <main id="field_holder">
+    <fieldset id="0">
+      <button onclick="deleteNode(0)">X</button>
+      <input type="text" id="0_title" placeholder="Title">
+      <br/>
+      <textarea id="0_body" cols="25" rows="6">Body</textarea>
+    </fieldset>
+  </main>
+  <button onclick="addNode()">Add note</button>
+</body>
+
+</html>
