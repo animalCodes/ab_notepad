@@ -16,12 +16,13 @@
   <main id="field_holder">
     <fieldset id="0">
       <button onclick="deleteNode(0)">X</button>
-      <input type="text" id="0_title" placeholder="Title">
+      <input type="text" placeholder="Title">
       <br/>
-      <textarea id="0_body" cols="25" rows="6">Body</textarea>
+      <textarea cols="25" rows="6">Body</textarea>
     </fieldset>
   </main>
   <button onclick="addNode()">Add note</button>
 </body>
-
+<!-- load JS after all the important HTML has loaded -->
+<script src="./node_manager.js"></script>
 </html>
