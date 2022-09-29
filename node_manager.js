@@ -1,20 +1,18 @@
-// * Grab holder element from DOM
+// Grab holder from DOM
 const holder = document.getElementById("field_holder")
-// * Note HTML
+// Note HTML
 const noteHtml = "<fieldset id='{{id}}'><button onclick='deleteNode({{id}})'>X</button><input type='text' id='{{id}}_title' placeholder='Title'><br/><textarea id='{{id}}_body' cols='25' rows='6'>Body</textarea></fieldset>"
-// * Tracks how many nodes there is
-let nodeCount = 0;
-// * [[title, body]] saves values of notes, so they can be restored 
+
+let nodeCount = 0; 
 let nodeBuffer = [];
 
-/**
- * Creates a new node
- */
-function addNode() {
-  nodeCount++;
-  // * Updating the content of the holder will reset any input values, so we need to save them first.
+// * Helper/library functions
 
-  // wipe nodeBuffer
+/**
+ * Updates nodeBuffer with current node titles and bodies
+ */
+function updateNodeBuffer() {
+  // reset buffer
   nodeBuffer = [];
 
   // for every node
@@ -23,11 +21,22 @@ function addNode() {
     // push title and body
     nodeBuffer.push([child.children[1].value, child.children[3].value]);
   }
+}
+
+/**
+ * Creates a new node
+ */
+function addNode() {
+  nodeCount++;
+  // * Updating the content of the holder will reset any input values, so we need to save them first.
+
+  // update buffer
+  updateNodeBuffer()
 
   // add new node
   holder.innerHTML += noteHtml.replaceAll("{{id}}", nodeCount)
 
-  // * And now restore values
+  // * Restore values
   for (let i = 0; i < holder.children.length-1/* skip just added node*/; i++) {
     const child = holder.children[i];
     // restore title
@@ -35,6 +44,7 @@ function addNode() {
     // restore body
     child.children[3].value = nodeBuffer[i][1];
   }
+  updateUrlDisplay()
 }
 
 /**
@@ -51,4 +61,5 @@ function deleteNode(id) {
       child.remove();
     }
   }
+  updateUrlDisplay()
 }
