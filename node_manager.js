@@ -16,7 +16,7 @@ function updateNodeBuffer() {
   nodeBuffer = [];
 
   // for every node
-  for (let i = 0; i < holder.children.length; i++) {
+  for (let i = 0; i < nodeCount; i++) {
     const child = holder.children[i];
     // push title and content
     nodeBuffer.push([child.children[1].value, child.children[3].value]);
@@ -29,12 +29,12 @@ function updateNodeBuffer() {
  * @param {string} content - content of note, default "Content"
  */
 function addNode(title="Title", content="Content") {
-  nodeCount++;
   // * Updating the content of the holder will reset any input values, so we need to save them first.
-
+  
   // update buffer
   updateNodeBuffer()
-
+  nodeCount++;
+  
   // add new node - ugly but it works.
   holder.innerHTML += noteHtml.replaceAll("{{id}}", nodeCount).replaceAll("{{title}}", title).replaceAll("{{content}}", content)
 
