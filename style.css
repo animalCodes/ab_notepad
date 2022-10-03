@@ -9,9 +9,10 @@ main {
   flex-wrap: wrap;
   gap: 5px;
 }
-fieldset {
+div.note {
   display: inline-block;
-  width: min-content;
+  width: fit-content;
+  margin: 2px;
   border: 0px;
 }
 input {
@@ -29,4 +30,7 @@ button {
   border: 1px solid var(--accent-colour);
   border-radius: 5px;
   background-color: var(--primary-colour);
+}
+div.note button {
+  margin-right: 5px;
 }
