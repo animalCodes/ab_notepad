@@ -1,6 +1,6 @@
 // Grab holder from DOM
 const holder = document.getElementById("field_holder")
-// Note HTML - I know using <div>s is unsemantic but <fieldset>s have a 2px groove border by default and I want the page to look as good as possible without any css
+// Note HTML - I know using <div>s is unsemantic but <fieldset>s have max-width + a 2px groove border by default and I want the page to look as good as possible without any css
 const noteHtml = "<div class='note' id='{{id}}'><button onclick='deleteNode({{id}})'>X</button><input type='text' value='{{title}}'><br/><textarea cols='25' rows='6'>{{content}}</textarea></div>"
 
 let nodeCount = 0; 
