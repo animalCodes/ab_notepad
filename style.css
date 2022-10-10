@@ -1,7 +1,8 @@
 body {
   font-size: 10px;
-  --primary-colour: white;
-  --accent-colour: gray;
+  --background-colour: white;
+  --foreground-colour: black;
+  --accent-colour: orangered;
 }
 main {
   display: flex;
@@ -17,7 +18,7 @@ div.note {
 }
 input {
   border: 0px;
-  border-bottom: 1px solid var(--accent-colour);
+  border-bottom: 1px solid var(--foreground-colour);
   margin-bottom: 5px;
 }
 h1 {
@@ -27,7 +28,7 @@ p, input, textarea {
   font-size: 1rem;
 }
 button {
-  border: 1px solid var(--accent-colour);
+  border: 1px solid var(--foreground-colour);
   border-radius: 5px;
   background-color: var(--primary-colour);
 }
