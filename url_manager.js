@@ -6,8 +6,11 @@ addEventListener("DOMContentLoaded", () => {
   // retrieve parameters
   const parameters = new URL(document.URL).searchParams;
   
-  // if searchParams is empty, add an empty node and return out.
-  if (parameters.toString() == "") {addNode(); return}
+  // if searchParams is empty, return out.
+  if (parameters.toString() == "") return;
+
+  // otherwise, delete default node.
+  deleteNode(0)
   
   // fill out notes
   for (let i = 0; i < Number(parameters.get("count"))||0; i++) {

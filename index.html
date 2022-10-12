@@ -10,15 +10,21 @@
 
 <body>
   <header>
-    <h1>AB_Notepad</h1>  
-    <p id="intro"><strong>A</strong>nimal's <strong>B</strong>asic note taking web application.</p>
-    <input type="text" title="URL representation of current notes" id="url_holder">
+    <h1>AB_Notepad</h1>
+    <p id="intro"><strong>A</strong>nimal"s <strong>B</strong>asic note taking web application.</p>
+    <input type="text" title="URL representation of current notes" id="url_holder" value="/placeholder?count=1&0_title=Title&0_content=Content">
   </header>
   <main id="field_holder">
+    <div class="note" id="0">
+      <button title="Delete note" onclick="deleteNode(0)">X</button>
+      <input type="text" value="Title" title="(Optional) Title of note"><br/>
+      <textarea cols="25" rows="6" title="Body of note">Content</textarea>
+    </div>
   </main>
   <button onclick="addNode()">Add note</button>
   <!-- load JS after all the important HTML has loaded -->
   <script src="./node_manager.js"></script>
   <script src="./url_manager.js"></script>
 </body>
+
 </html>
