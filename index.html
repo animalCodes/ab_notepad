@@ -4,7 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="notes.css">
   <title>AB_Notepad</title>
 </head>
 
@@ -12,16 +13,17 @@
   <header>
     <h1>AB_Notepad</h1>
     <p id="intro"><strong>A</strong>nimal"s <strong>B</strong>asic note taking web application.</p>
-    <input type="text" title="URL representation of current notes" id="url_holder" value="/placeholder?count=1&0_title=Title&0_content=Content">
+    <!-- ! Make non-focusable -->
+    <input type="text" title="URL representation of current notes" id="url_holder" value="/placeholder?count=1&0_title=Title&0_content=Content"><br/>
+    <button onclick="addNode()">Add note</button>
   </header>
   <main id="field_holder">
     <div class="note" id="0">
-      <button title="Delete note" onclick="deleteNode(0)">X</button>
-      <input type="text" value="Title" title="(Optional) Title of note"><br/>
-      <textarea cols="25" rows="6" title="Body of note">Content</textarea>
+      <button onclick="deleteNode(0)">Delete</button>
+      <input type="text" value="Title">
+      <textarea cols="29" rows="5">Content</textarea>
     </div>
   </main>
-  <button onclick="addNode()">Add note</button>
   <!-- load JS after all the important HTML has loaded -->
   <script src="./node_manager.js"></script>
   <script src="./url_manager.js"></script>

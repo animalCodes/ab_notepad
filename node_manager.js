@@ -1,7 +1,7 @@
 // Grab holder from DOM
 const holder = document.getElementById("field_holder")
 // Note HTML - I know using <div>s is unsemantic but <fieldset>s have max-width + a 2px groove border by default and I want the page to look as good as possible without any css
-const noteHtml = "<div class='note' id='{{id}}'><button title='Delete note' onclick='deleteNode({{id}})'>X</button><input type='text' value='{{title}}' title='(Optional) Title of note'><br/><textarea cols='25' rows='6' title='Body of note'>{{content}}</textarea></div>"
+const noteHtml = "<div class='note' id='{{id}}'><button onclick='deleteNode({{id}})'>Delete</button>\n<input type='text' value='{{title}}'><br/><textarea cols='29' rows='5'>{{content}}</textarea></div>"
 
 let nodeCount = 1;
 let nodeBuffer = [];
@@ -19,7 +19,7 @@ function updateNodeBuffer() {
   for (let i = 0; i < nodeCount; i++) {
     const child = holder.children[i];
     // push title and content
-    nodeBuffer.push([child.children[1].value, child.children[3].value]);
+    nodeBuffer.push([child.children[1].value, child.children[2].value]);
   }
 }
 
@@ -44,7 +44,7 @@ function addNode(title="Title", content="Content") {
     // restore title
     child.children[1].value = nodeBuffer[i][0];
     // restore content
-    child.children[3].value = nodeBuffer[i][1];
+    child.children[2].value = nodeBuffer[i][1];
   }
   updateUrlDisplay()
 }

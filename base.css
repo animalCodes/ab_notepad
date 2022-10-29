@@ -1,0 +1,94 @@
+html, body {margin: 0px}
+html {
+  /* variables */
+  --accent: rgb(34, 139, 34);
+  --secondary-colour: rgb(0, 0, 0);
+  --primary-colour: rgb(255, 255, 255);
+  --border: 2px solid var(--secondary-colour);
+}
+body {
+  background-color: var(--primary-colour);
+  color: var(--secondary-colour);
+  line-height: 1.6;
+  font-family: monospace;
+}
+header, article, main {
+  text-align: center;
+  overflow-wrap: normal;
+  word-wrap: normal; /* just in case */
+}
+/** Text */
+p {
+  padding-left: 5px;
+  text-align: center;
+}
+@media screen and (max-width: 300px) {
+  p {
+    max-width: 80%;
+    margin: auto;
+  }
+}
+ul {text-align: left}
+a {color: var(--secondary-colour)}
+a:hover {color: var(--accent); text-decoration: none;}
+a.external::after {content: '⇗'}
+p a {
+  font-size: inherit;
+  font-weight: bold;
+}
+cmd, .cmd {
+  background-color: var(--secondary-colour);
+  color: var(--primary-dark);
+  font-size: 0.95em;
+  white-space: nowrap;
+}
+*:focus-visible {
+  outline: var(--secondary-colour) solid 2px;
+  border-radius: 5px;
+}
+textarea {display: block;}
+input, textarea, button {
+  background-color: inherit;
+  color: inherit;
+  border: var(--border);
+  border-radius: 5px;
+  margin-bottom: 5px;
+}
+button:hover {
+  outline: 2px solid var(--secondary-colour);
+  cursor: pointer
+}
+/** Text sizes */
+html {font-size: 10px}
+@media screen and (max-width: 450px) {
+  html {font-size: 9px}
+}
+@media screen and (max-width: 260px) {
+  html {font-size: 8px}
+}
+h1 {font-size: 3.2rem}
+h2 {font-size: 2.5rem}
+h3 {font-size: 2.3rem}
+p, li, label, input, textarea {font-size: 1.4rem}
+/** images */
+img {
+  max-width: 300px;
+  max-height: 200px;
+}
+img.large {
+  max-width: 500px;
+  max-height: 275px;
+  cursor: alias;
+}
+@media screen and (max-width: 1000px) {
+  img.large {
+    max-width: 200px;
+    max-height: 100px;
+  }
+}
+@media screen and (max-width: 415px) {
+  img {
+    max-width: 200px;
+    max-height: 150px;
+  }
+}
