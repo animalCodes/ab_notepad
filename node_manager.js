@@ -6,7 +6,6 @@ const noteHtml = "<div class='note' id='note_{{id}}'><button onclick='deleteNode
 let nodeCount = 1;
 let nodeBuffer = [];
 
-// * Helper/library functions
 
 /**
  * Updates nodeBuffer with current node titles and bodies
@@ -19,7 +18,7 @@ function updateNodeBuffer() {
   for (let i = 0; i < nodeCount; i++) {
     const child = holder.children[i];
     // push title and content
-    nodeBuffer.push([child.children[1].value, child.children[2].value]);
+    nodeBuffer.push([child.children[1].value, child.children[3].value]);
   }
 }
 
