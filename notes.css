@@ -1,9 +1,11 @@
 input#url_holder {
   width: 80%;
   border: none;
-  border-radius: 0px;
-  border-bottom: 1px solid var(--secondary-colour);
   font-style: italic;
+}
+div#button_holder {
+  padding-top: 5px;
+  border-top: var(--border);
 }
 main#field_holder {
   display: flex;
