@@ -47,3 +47,6 @@ function createUrl() {
 
   return url;
 }
+
+// There's no point in showing the url holder if the url manager hasn't loaded, so only un-hide it once the file has fully loaded.
+document.getElementById("url_holder").hidden = false;

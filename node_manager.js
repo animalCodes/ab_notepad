@@ -1,7 +1,7 @@
 // Grab holder from DOM
 const holder = document.getElementById("field_holder")
 // Note HTML - I know using <div>s is unsemantic but <fieldset>s have max-width + a 2px groove border by default and I want the page to look as good as possible without any css
-const noteHtml = "<div class='note' id='{{id}}'><button onclick='deleteNode({{id}})'>Delete</button>\n<input type='text' value='{{title}}'><br/><textarea cols='29' rows='5'>{{content}}</textarea></div>"
+const noteHtml = "<div class='note' id='note_{{id}}'><button onclick='deleteNode({{id}})'>Delete</button>\n<input type='text' value='{{title}}'><br/><textarea cols='29' rows='5'>{{content}}</textarea></div>"
 
 let nodeCount = 1;
 let nodeBuffer = [];
@@ -65,3 +65,7 @@ function deleteNode(id) {
   }
   updateUrlDisplay()
 }
+
+// Un-hide buttons once script has loaded
+document.querySelector("div#button_holder button").hidden = false;
+document.querySelector("div#note_0 button").hidden = false;
