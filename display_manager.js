@@ -1,26 +1,35 @@
-// Grab holder from DOM
+// Get URL display element from DOM
+const urlDisplay = document.getElementById("url_holder")
 const holder = document.getElementById("field_holder")
+
+// * Once page has finished loading, take a peek at the URL and convert any GET parameters into notes
+addEventListener("DOMContentLoaded", () => {
+  // retrieve parameters
+  const parameters = new URL(document.URL).searchParams;
+  
+  // if searchParams is empty, return out.
+  if (parameters.toString() == "") return;
+
+  // otherwise, delete default node.
+  deleteNode(0)
+  
+  // fill out notes
+  for (let i = 0; i < Number(parameters.get("count"))||0; i++) {
+    // retrieve title and content, add note with retrieved data
+    addNode(parameters.get(`${i}_title`), parameters.get(`${i}_content`))
+  }
+
+  // Update display
+  updateUrlDisplay()
+})
+
+// * Notes
+
 // Note HTML - I know using <div>s is unsemantic but <fieldset>s have max-width + a 2px groove border by default and I want the page to look as good as possible without any css
 const noteHtml = "<div class='note' id='note_{{id}}'><button onclick='deleteNode({{id}})'>Delete</button>\n<input type='text' value='{{title}}'><br/><textarea cols='29' rows='5'>{{content}}</textarea></div>"
 
 let nodeCount = 1;
 let nodeBuffer = [];
-
-
-/**
- * Updates nodeBuffer with current node titles and bodies
- */
-function updateNodeBuffer() {
-  // reset buffer
-  nodeBuffer = [];
-
-  // for every node
-  for (let i = 0; i < nodeCount; i++) {
-    const child = holder.children[i];
-    // push title and content
-    nodeBuffer.push([child.children[1].value, child.children[3].value]);
-  }
-}
 
 /**
  * Creates a new node
@@ -48,23 +57,7 @@ function addNode(title="Title", content="Content") {
   updateUrlDisplay()
 }
 
-/**
- * Deletes node with given id
- * @param {Number} id - id of node
- */
-function deleteNode(id) {
-  nodeCount--;
-  // loop through all children of holder
-  for (let i = 0; i < holder.children.length; i++) {
-    const child = holder.children[i];
-    // if ids match, remove node
-    if (child.id == id) {
-      child.remove();
-    }
-  }
-  updateUrlDisplay()
-}
-
 // Un-hide buttons once script has loaded
 document.querySelector("div#button_holder button").hidden = false;
 document.querySelector("div#note_0 button").hidden = false;
+document.getElementById("url_holder").hidden = false;
