@@ -15,17 +15,22 @@
     <p id="intro"><strong>A</strong>nimal"s <strong>B</strong>asic note taking web application.</p>
     <input type="text" id="url_holder" title="URL representation of current notes" value="/placeholder?count=1&0_title=Title&0_content=Content" disabled="true" hidden="true">
     <div id="button_holder">
-      <button onclick="addNode()" hidden="true">Add note</button>
+      <button onclick="addNote()" hidden="true">Add note</button>
     </div>
   </header>
   <main id="field_holder">
     <div class="note" id="note_0">
-      <button onclick="deleteNode(0)" hidden="true">Delete</button>
+      <button onclick="deleteNote(0)" hidden="true">Delete</button>
       <input type="text" value="Title"><br>
       <textarea cols="29" rows="5">Content</textarea>
     </div>
   </main>
   <!-- load JS after all the important HTML has loaded -->
+  <script>
+    // Get URL display element from DOM
+    const urlDisplay = document.getElementById("url_holder")
+    const holder = document.getElementById("field_holder")
+  </script>
   <script src="./lib.js"></script>
   <script src="./display_manager.js"></script>
 </body>
