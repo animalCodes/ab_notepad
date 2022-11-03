@@ -1,6 +1,8 @@
 input#url_holder {
-  width: 80%;
+  width: 60%;
   border: none;
+  border-right: var(--border);
+  border-radius: 0px;
   font-style: italic;
 }
 div#button_holder {
