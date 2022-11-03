@@ -58,7 +58,6 @@
   // * Restore values
   for (let i = 0; i < noteCount; i++) {
     const child = holder.children[i];
-    console.log(child)
     // restore title
     child.children[1].value = noteBuffer[i][0];
     // restore content

@@ -19,6 +19,9 @@ addEventListener("DOMContentLoaded", () => {
   updateUrlDisplay()
 })
 
+// * Listen for any changes within note_holder, update url display.
+holder.addEventListener("input", updateUrlDisplay)
+
 // Note HTML - I know using <div>s is unsemantic but <fieldset>s have max-width + a 2px groove border by default and I want the page to look as good as possible without any css
 const noteHtml = "<div class='note' id='note_{{id}}'><button onclick='deleteNote({{id}})'>Delete</button>\n<input type='text' value='{{title}}'><br/><textarea cols='29' rows='5'>{{content}}</textarea></div>"
 
