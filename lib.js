@@ -44,12 +44,38 @@
 }
 
 /**
+ * Creates a new note
+ * @param {string} title - title of note, default "Title"
+ * @param {string} content - content of note, default "Content"
+ */
+ function addNote(title="Title", content="Content") {
+  // Save current notes
+  const noteBuffer = getNoteBuffer();
+  
+  // add new note - ugly but it works.
+  holder.innerHTML += noteHtml.replaceAll("{{id}}", noteCount).replaceAll("{{title}}", title).replaceAll("{{content}}", content)
+  
+  // * Restore values
+  for (let i = 0; i < noteCount; i++) {
+    const child = holder.children[i];
+    console.log(child)
+    // restore title
+    child.children[1].value = noteBuffer[i][0];
+    // restore content
+    child.children[3].value = noteBuffer[i][1];
+  }
+  
+  noteCount++;
+
+  updateUrlDisplay()
+}
+
+/**
  * Deletes note with given id
  * @param {Number} id - id of note
  */
  function deleteNote(id) {
-  noteCount--;
-  // loop through all children of holder
   holder.querySelector(`#note_${id}`).remove();
+  noteCount--;
   updateUrlDisplay()
 }
