@@ -6,7 +6,7 @@
  function createUrl() {
   let noteBuffer = getNoteBuffer()
    // start with route and 'count' parameter
-  let url = "/placeholder?count="+noteBuffer.length;
+  let url = "https://animalcodes.github.io/ab_notepad/?count="+noteBuffer.length;
 
   let id = 0;
   noteBuffer.forEach(pair => {
