@@ -19,6 +19,7 @@ main#field_holder {
 }
 div.note {
   display: inline-block;
+  text-align: start;
   width: fit-content;
   margin: 2px;
   border: 0px;
