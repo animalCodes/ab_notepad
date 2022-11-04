@@ -12,7 +12,7 @@ addEventListener("DOMContentLoaded", () => {
   // fill out notes
   for (let i = 0; i < Number(parameters.get("count"))||0; i++) {
     // retrieve title and content, add note with retrieved data
-    addNote(parameters.get(`${i}_title`), parameters.get(`${i}_content`))
+    addNote(decodeURI(parameters.get(`${i}_title`)), decodeURI(parameters.get(`${i}_content`)))
   }
 
   // Update display

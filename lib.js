@@ -1,6 +1,6 @@
 /**
  * Generates a URL string containing all note content to be used for restoration.
- * Essentially just converts the output of getNoteBuffer() to a URL string.
+ * Essentially just converts the output of getNoteBuffer() to a valid URL.
  * @returns {string} Generated URL
  */
  function createUrl() {
@@ -16,7 +16,7 @@
     id++
   })
 
-  return url;
+  return encodeURI(url);
 }
 
 /**
